@@ -18,8 +18,7 @@ function Repositories() {
   }, [history]);
 
   return (
-    <Style.Container>
-      <Style.Title>Repositories</Style.Title>
+    <Style.Container>      
       <Style.List>
         {repositories.map((repo, index) => (
           <Style.ListItem key={index}>

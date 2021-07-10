@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+body {
+  background: #2a2731;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+a,
+a:visited,
+a:active {
+  color: #fff;
+  text-decoration: none;
+}

@@ -16,7 +16,6 @@ function HeaderComponent() {
           (repositorie) => repositorie.name
         );
         localStorage.setItem("Repositories", JSON.stringify(repositories));
-        console.log(repositories);
         history.push("/repositories");
       })
       .catch((err) => {

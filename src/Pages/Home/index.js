@@ -1,59 +1,33 @@
 import React from "react";
-import * as Style from "./styled";
+import * as S from "./styled";
+import ProductCard from "../../Components/ProductCard";
+import Client from "../../Components/Client";
 
 function Home() {
-  return(
-    <Style.Container>
-      Home
-    </Style.Container>
-  )
+  let products, clients;
+
+  function loadInfo() {
+    if(JSON.parse(localStorage.getItem("clients"))) {
+      clients = JSON.parse(localStorage.getItem("clients"));
+    } else { clients = []; }
+    if(JSON.parse(localStorage.getItem("products"))) {
+      products = JSON.parse(localStorage.getItem("products"));
+    } else { products = []; }
+  }
+  window.onload = loadInfo();
+  return (
+    <S.Container>
+      <div>        
+        <S.Title>{products.length > 0 || null ? "Produtos" : "Nenhum produto cadastrado."}</S.Title>
+        <ProductCard />
+      </div>
+      <S.Hr />
+      <div>
+        <S.Title>{clients.length > 0 || null ? "Clientes" : "Nenhum cliente cadastrado."}</S.Title>
+        <Client />
+      </div>
+    </S.Container>
+  );
 }
 
 export default Home;
-
-
-// import React, { useState } from "react";
-// import axios from "axios";
-// import * as Style from "./styled";
-// import { useHistory } from "react-router-dom";
-
-// function Home() {
-//   const history = useHistory();
-//   const [user, setUser] = useState("");
-//   const [erro, setErro] = useState(false);
-
-//   function handleSearch() { 
-//     axios
-//       .get(`https://api.github.com/users/${user}/repos`)
-//       .then((response) => {
-//         const repositories = response.data.map(
-//           (repositorie) => repositorie.name
-//         );
-//         localStorage.setItem("Repositories", JSON.stringify(repositories));
-//         setErro(false);
-//         history.push("/repositories");
-//       })
-//       .catch((err) => {
-//         setErro(true);
-//       });
-//   }
-
-//   return (
-//     <Style.Container>
-//       <div>
-//         <Style.Input
-//           className="usuarioInput"
-//           placaeholder="Usuário"
-//           value={user}
-//           onChange={(event) => setUser(event.target.value)}
-//         />
-//         <Style.Button type="button" onClick={handleSearch}>
-//           Pesquisar
-//         </Style.Button>
-//       </div>
-//       {erro ? <Style.Error>Usuário não encontrado</Style.Error> : ""}
-//     </Style.Container>
-//   );
-// }
-
-// export default Home;

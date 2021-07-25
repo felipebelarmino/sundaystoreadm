@@ -1,35 +1,61 @@
 import styled from "styled-components";
 
 export const Header = styled.div`
-  background-color: #1c2023;
-  height: 70px;
+  @media (max-width: 768px) {
+    height: 12vh;
+  }
 `;
 
 export const Container = styled.div`
-  border-bottom: 2px solid #ed145b;
   height: 100%;
-  margin: 0 100px;
   color: #fff;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;  
 `;
 
 export const StandardBox = styled.div`
-  width: 50%;
+  width: 30vw;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    justify-content: flex-end;
+  }
 `;
 
-export const Felipe = styled.img`
-  width: 50px;
-  border-radius: 50%;
-`;
-export const PButton = styled.p`
-  cursor: pointer;
+export const Logo = styled.p`  
+  font-size: calc(12px + 3vw);
+  font-family: 'Vampiro One', cursive;
+  color: white;
   &:hover {
-    background-color: #555;
+    color: #ed145b;
+  }
+  @media (max-width: 768px) {
+    font-size: 28px;
+    position: absolute;
+    top: 10px;
+  }
+`;
+
+export const PButton = styled.p`
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  cursor: pointer;
+  font-size: calc(10px + 1vw);
+  transition: 100ms;
+  a:hover {
+    color: #ed145b;
+  }
+
+  @media (max-width: 768px) {
+    font-weight: bold;
+    align-items: flex-end;
+    font-size: calc(12px + 2vw)
   }
 `;
